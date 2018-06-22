@@ -1,0 +1,8 @@
+{
+  "core": false,
+  "ts": false,
+  "license": "MIT",
+  "services": [
+    "travis"
+  ]
+}

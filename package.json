@@ -1,0 +1,30 @@
+{
+  "name": "slate-md-shorcuts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mrm": "mrm --dir=node_modules/@adonisjs/mrm-preset",
+    "commit": "git-cz",
+    "test": "japa",
+    "pretest": "npm run lint",
+    "lint": "standard"
+  },
+  "keywords": [],
+  "author": "virk",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/mrm-preset": "^1.0.0",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "japa": "^1.0.6",
+    "japa-cli": "^1.0.1",
+    "mrm": "^1.1.1",
+    "standard": "^11.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
