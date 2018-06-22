@@ -15,11 +15,13 @@ module.exports = {
    *
    * @method markAsBold
    *
+   * @param  {Object}   event
    * @param  {Object}   change
    *
    * @return {void}
    */
-  markAsBold (change) {
+  markAsBold (event, change) {
+    event.preventDefault()
     change.wrapText('**')
   },
 
@@ -28,11 +30,13 @@ module.exports = {
    *
    * @method markAsItalics
    *
+   * @param  {Object}   event
    * @param  {Object}      change
    *
    * @return {void}
    */
-  markAsItalics (change) {
+  markAsItalics (event, change) {
+    event.preventDefault()
     change.wrapText('*')
   },
 
@@ -41,12 +45,15 @@ module.exports = {
    *
    * @method markAsAnchor
    *
-   * @param  {Object}     change
-   * @param  {String}     prefix
+   * @param  {Object}   event
+   * @param  {Object}   change
    *
    * @return {void}
    */
-  markAsAnchor (change, prefix = '') {
+  markAsAnchor (event, change) {
+    event.preventDefault()
+
+    const prefix = event.shiftKey ? '!' : ''
     const selectedText = change.value.fragment.text || ''
     const isValidUrl = selectedText && isUrl(selectedText)
 
@@ -82,12 +89,29 @@ module.exports = {
    *
    * @method markAsInlineCode
    *
+   * @param  {Object}   event
    * @param  {Object}         change
    *
    * @return {void}
    */
-  markAsInlineCode (change) {
+  markAsInlineCode (event, change) {
+    event.preventDefault()
     change.wrapText('`')
+  },
+
+  /**
+   * Marks the selection as inline code
+   *
+   * @method markAsInlineCode
+   *
+   * @param  {Object}   event
+   * @param  {Object}         change
+   *
+   * @return {void}
+   */
+  markAsStrike (event, change) {
+    event.preventDefault()
+    change.wrapText('~~')
   },
 
   /**
@@ -100,7 +124,9 @@ module.exports = {
    *
    * @return {void}
    */
-  handleTab (event, change) {
+  handleTab (event, change, arrowName) {
+    event.preventDefault()
+
     if (!event.shiftKey) {
       change.insertText('  ')
     }
@@ -120,7 +146,6 @@ module.exports = {
   handle (event, change) {
     if (event.key === 'Tab') {
       this.handleTab(event, change)
-      event.preventDefault()
       return true
     }
 
@@ -130,17 +155,23 @@ module.exports = {
 
     switch (event.key) {
       case 'b':
-        this.markAsBold(change)
-        return true
+        this.markAsBold(event, change)
+        return 'bold'
+      case 'e':
+        if (!event.shiftKey) {
+          return false
+        }
+        this.markAsStrike(event, change)
+        return 'emphasis'
       case 'i':
-        this.markAsItalics(change)
-        return true
+        this.markAsItalics(event, change)
+        return 'emphasis'
       case 'k':
-        this.markAsAnchor(change, event.shiftKey ? '!' : '')
-        return true
+        this.markAsAnchor(event, change)
+        return event.shiftKey ? 'image' : 'url'
       case '/':
-        this.markAsInlineCode(change)
-        return true
+        this.markAsInlineCode(event, change)
+        return 'inlineCode'
     }
   }
 }
