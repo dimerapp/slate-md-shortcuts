@@ -1,7 +1,6 @@
 # Slate md shortcuts
 > Markdown shortcuts for slate.js
 
-[![travis-image]][travis-url]
 [![npm-image]][npm-url]
 
 This repo will insert markdown syntax for certain inline decorations like **bold**, **emphasis**, **strike**, **image** ,**url** and **inlineCode**.
@@ -60,9 +59,6 @@ Everyone is welcome to contribute. Please take a moment to review the [contribut
 [thetutlage](https://github.com/thetutlage) and [contributors](https://github.com/dimerapp/slate-md-shortcuts/graphs/contributors).
 
 MIT License, see the included [MIT](LICENSE.md) file.
-
-[travis-image]: https://img.shields.io/travis/dimerapp/slate-md-shortcuts/master.svg?style=flat-square&logo=travis
-[travis-url]: https://travis-ci.org/dimerapp/slate-md-shortcuts "travis"
 
 [npm-image]: https://img.shields.io/npm/v/slate-md-shortcuts.svg?style=flat-square&logo=npm
 [npm-url]: https://npmjs.org/package/slate-md-shortcuts "npm"
