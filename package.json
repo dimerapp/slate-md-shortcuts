@@ -1,30 +1,42 @@
 {
-  "name": "slate-md-shorcuts",
+  "name": "slate-md-shortcuts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/build.js",
   "scripts": {
     "mrm": "mrm --dir=node_modules/@adonisjs/mrm-preset",
     "commit": "git-cz",
     "test": "japa",
     "pretest": "npm run lint",
-    "lint": "standard"
+    "lint": "standard",
+    "build": "webpack",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "virk",
   "license": "MIT",
   "devDependencies": {
     "@adonisjs/mrm-preset": "^1.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
     "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.1.0",
     "japa": "^1.0.6",
     "japa-cli": "^1.0.1",
     "mrm": "^1.1.1",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "uglifyjs-webpack-plugin": "^1.2.6",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8"
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "is-url": "^1.2.4"
   }
 }
