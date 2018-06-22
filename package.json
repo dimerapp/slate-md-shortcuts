@@ -1,7 +1,7 @@
 {
   "name": "slate-md-shortcuts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Markdown shortcuts for slate.js",
   "main": "dist/build.js",
   "scripts": {
     "mrm": "mrm --dir=node_modules/@adonisjs/mrm-preset",
@@ -38,5 +38,16 @@
   },
   "dependencies": {
     "is-url": "^1.2.4"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimerapp/slate-md-shortcuts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dimerapp/slate-md-shortcuts/issues"
+  },
+  "homepage": "https://github.com/dimerapp/slate-md-shortcuts#readme"
 }
