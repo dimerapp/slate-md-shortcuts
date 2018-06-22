@@ -12,6 +12,10 @@
     "build": "webpack",
     "prepublishOnly": "npm run build"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [],
   "author": "virk",
   "license": "MIT",
